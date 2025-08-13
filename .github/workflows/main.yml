@@ -72,7 +72,10 @@ jobs:
     needs: [Dockerimage]
     steps:
       - name: Download code
-        run: actions/download-artifact@v4
+        uses: actions/download-artifact@v4
+        with: 
+          name: code
+          path: .
         
       - name: Component-test-run
         run: bash ci/component-test.sh
@@ -82,7 +85,10 @@ jobs:
     needs: [Dockerimage]
     steps:
       - name: Download code
-        run: actions/download-artifact@v4
+        uses: actions/download-artifact@v4
+        with: 
+          name: code
+          path: .
         
       - name: Performance-test-run
         run: bash ci/performance-test.sh
