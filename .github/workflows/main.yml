@@ -14,13 +14,9 @@ jobs:
     steps:
       - name: Clone down repository
         uses: actions/checkout@v5
-        
-      - run: ci/build-app.sh
 
-      - name: run a one-line script
-        run: echo Hello World
+      - name: Build project
+        run: ci/build-app.sh
 
-      - name: run a multi-line script
-        run: |
-          echo Add other actions
-          echo to build bla bla
+      - name: Test
+        run: ci/unit-test-app.sh
