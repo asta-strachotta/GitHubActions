@@ -66,3 +66,18 @@ jobs:
         
       - name: Push docker
         run: bash ci/push-docker.sh
+
+  Component-Test:
+    runs-on: ubuntu-latest
+    needs: [Dockerimage]
+    steps:
+      - name: Component-test-run
+        run: bash ci/component-test.sh
+
+  Performance-Test:
+    runs-on: ubuntu-latest
+    needs: [Dockerimage]
+    steps:
+      - name: Performance-test-run
+        run: bash ci/performance-test.sh
+    
